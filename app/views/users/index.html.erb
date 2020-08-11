@@ -6,6 +6,6 @@
 <% end%>
 <ol>
 <% @users.each do |user| %>
-<li><%= user.username %></li>
+<li><%= link_to user.username, user %></li>
 <% end%>
 </ol>
