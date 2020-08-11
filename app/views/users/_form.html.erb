@@ -1,4 +1,13 @@
-<%= form_with model: @user do |f| %>
+<%= form_for(@user) do |f| %>
+  <% if @user.errors.any? %>
+    <p>Ooops :( Couldn't save the user</p>
+    <p>You have <%= pluralize(@user.errors.count, "error") %>. Please, correct following: </p>
+    <ul>
+      <% @user.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+    </ul>
+  <% end %>
   <div>
     <%= f.label :username%>
     <%= f.text_field :username, autofocus: true %>
