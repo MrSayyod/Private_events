@@ -2,11 +2,12 @@ class EventsController < ApplicationController
   before_action :require_signin, except: [:index]
 
   def index
-    @events = Event.all.order('date desc')
+    @events = Event.all.order('date asc')
   end
 
   def show
     @event = Event.find(params[:id])
+    @attendees = @event.attendees
   end
   
   def edit

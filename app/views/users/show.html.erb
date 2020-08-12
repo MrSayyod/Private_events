@@ -1,5 +1,19 @@
 <h2><%= @user.username %></h2>
-<% if current_user == @user %>
-<%= link_to "Edit account", edit_user_path %>
-<%= link_to 'Delete account', user_path, method: :delete, data: {confirm: "Are you sure to delete the account?"} %>
+<h6>Created events</h6>
+<% @user.events.each do |event|%>
+  <ul>
+  <li> Event: <%= link_to event.title.capitalize, event %> Date: <%= event.date%> </li>
+  </ul>
 <% end %>
+<h6>Attended events</h6>
+<% @user.attended_events.each do |event|%>
+  <ul>
+  <li> Event: <%= link_to event.title.capitalize, event %> Date: <%= event.date%> </li>
+  </ul>
+<% end %>
+<div>
+<% if current_user && current_user.id == @user.id %>
+<p> <%= link_to "Edit account", edit_user_path%> </p>
+<p> <%= link_to "Delete account", user_path, method: :delete, data: {confirm: "Are you sure to delete your account?"} %> </p>
+<% end %>
+</div>

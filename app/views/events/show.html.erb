@@ -4,5 +4,15 @@
 <p>Description: <%= @event.description %></p>
 </div>
 <p>Planned to held on <%= @event.date %> </p>
+<p> Attendees: </p>
+<ol> 
+<% if @attendees.any? %>
+<% @attendees.each do |attender| %>
+  <li><%= link_to attender.username, attender %></li>
+  <% end %>
+<% else %>
+<p>There are no attendees for this event</p>
+<% end %>
+</ol>
 <p><%= link_to "Edit", edit_event_path if current_user && current_user.id == @event.creator_id%></p>
 <p>Created by <%= @event.creator.username %> </p>
