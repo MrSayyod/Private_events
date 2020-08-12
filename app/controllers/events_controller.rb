@@ -1,4 +1,6 @@
 class EventsController < ApplicationController
+  before_action :require_signin, except: [:index]
+
   def index
     @events = Event.all.order('date desc')
   end

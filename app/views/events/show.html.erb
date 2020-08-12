@@ -4,5 +4,5 @@
 <p>Description: <%= @event.description %></p>
 </div>
 <p>Planned to held on <%= @event.date %> </p>
-<p><%= link_to 'Edit details', edit_event_path %></p>
+<p><%= link_to "Edit", edit_event_path if current_user && current_user.id == @event.creator_id%></p>
 <p>Created by <%= @event.creator.username %> </p>
