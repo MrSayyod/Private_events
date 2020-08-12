@@ -1,0 +1,6 @@
+<h2>Upcoming events</h2>
+<% @upcoming.each do |event| %>
+  <ul>
+  <li> Event: <%= link_to event.title.capitalize, event %> Date: <%= event.date%> </li>
+  </ul>
+<% end %>

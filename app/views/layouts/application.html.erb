@@ -15,7 +15,8 @@
     <% else %>
       <p><%= alert %></p>
     <% end %>
-    <%= link_to "Events homepage", events_path %>
+    <%= link_to "Homepage", events_path %>
+    <%= link_to 'Users', users_path %>
     <%= yield %>
     <p>
       <% if current_user %>

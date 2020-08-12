@@ -1,0 +1,6 @@
+<h2>Past events</h2>
+<% @past.each do |event| %>
+  <ul>
+  <li> Event: <%= link_to event.title.capitalize, event %> Date: <%= event.date%> </li>
+  </ul>
+<% end %>

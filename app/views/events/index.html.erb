@@ -1,7 +1,4 @@
 <h2>All events</h2>
-<ol>
-  <% @events.each do |event| %>
-  <li> Event: <%= link_to event.title, event %>  Date: <%= event.date %>  </li>
-  <% end %>
-</ol>
-<%= link_to "Create an event", new_event_path %>
+
+<h4><%= link_to "Upcoming events", upcoming_path %></h4>
+<h4><%= link_to "Past events", past_path %></h4>
