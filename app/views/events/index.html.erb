@@ -1,0 +1,7 @@
+<h2>All events</h2>
+<ol>
+  <% @events.each do |event| %>
+  <li><%= link_to event.title, event %></li>
+  <% end %>
+</ol>
+<%= link_to "Create an event", new_event_path %>

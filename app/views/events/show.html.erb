@@ -1,0 +1,8 @@
+<h3>Event Details</h3>
+<p>Title: <%= @event.title.capitalize %></p>
+<div>
+<p>Description: <%= @event.description %></p>
+</div>
+<p>Planned to held on <%= @event.date %> </p>
+<p><%= link_to 'Edit details', edit_event_path %></p>
+<p>Created by <%= @event.creator.username %> </p>
