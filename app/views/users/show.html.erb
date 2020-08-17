@@ -1,6 +1,6 @@
 <h2><%= @user.username %></h2>
 <h6>Created events</h6>
-<% if @user.events.any? %>
+<% if @created_events.any? %>
   <% @user.events.each do |event|%>
     <ul>
       <li> Event: <%= link_to event.title.capitalize, event %> Date: <%= event.date%> </li>

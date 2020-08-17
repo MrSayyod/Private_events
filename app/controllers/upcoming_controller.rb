@@ -1,5 +1,5 @@
 class UpcomingController < ApplicationController
   def index
-    @upcoming = Event.upcoming
+    @upcoming = current_user.attended_events.upcoming
   end
 end

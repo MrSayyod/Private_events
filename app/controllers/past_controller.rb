@@ -1,5 +1,5 @@
 class PastController < ApplicationController
   def index
-    @past = Event.past
+    @past = current_user.attended_events.past
   end
 end
