@@ -21,6 +21,18 @@
 <% end %>
 <div>
 <div>
+<h6>Upcoming Events</h6>
+<% if @upcoming_events.any? %>
+  <% @upcoming_events.each do |event|%>
+    <ul>
+      <li> Event: <%= link_to event.title.capitalize, event %> Date: <%= event.date%> </li>
+    </ul>
+  <% end %>
+<% else %>
+  <p>No upcoming events</p>  
+<% end %>
+</div>
+<div>
 <h6>Previous Events</h6>
 <% if @past_events.any? %>
   <% @past_events.each do |event|%>
