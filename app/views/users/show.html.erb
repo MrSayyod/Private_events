@@ -1,0 +1,51 @@
+<h2><%= @user.username %></h2>
+<h6>Created events</h6>
+<% if @created_events.any? %>
+  <% @user.events.each do |event|%>
+    <ul>
+      <li> Event: <%= link_to event.title.capitalize, event %> Date: <%= event.date%> </li>
+    </ul>
+  <% end %>
+<% else %>
+  <p>No event created by user</p>  
+<% end %>
+<h6>Attended events</h6>
+<% if @user.attended_events.any? %>
+  <% @user.attended_events.each do |event|%>
+    <ul>
+      <li> Event: <%= link_to event.title.capitalize, event %> Date: <%= event.date%> </li>
+    </ul>
+  <% end %>
+<% else %>
+  <p>User is not attending any event</p>  
+<% end %>
+<div>
+<div>
+<h6>Upcoming Events</h6>
+<% if @upcoming_events.any? %>
+  <% @upcoming_events.each do |event|%>
+    <ul>
+      <li> Event: <%= link_to event.title.capitalize, event %> Date: <%= event.date%> </li>
+    </ul>
+  <% end %>
+<% else %>
+  <p>No upcoming events</p>  
+<% end %>
+</div>
+<div>
+<h6>Previous Events</h6>
+<% if @past_events.any? %>
+  <% @past_events.each do |event|%>
+    <ul>
+      <li> Event: <%= link_to event.title.capitalize, event %> Date: <%= event.date%> </li>
+    </ul>
+  <% end %>
+<% else %>
+  <p>No previous events</p>  
+<% end %>
+</div>
+<% if current_user && current_user.id == @user.id %>
+<p> <%= link_to "Edit account", edit_user_path%> </p>
+<p> <%= link_to "Delete account", user_path, method: :delete, data: {confirm: "Are you sure to delete your account?"} %> </p>
+<% end %>
+</div>
